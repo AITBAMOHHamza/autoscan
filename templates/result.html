@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+  <title>hello</title>
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid outline-warning">
+
+    <div class="container">
+
+      <h1 class="display-4">See bellow the result of your scan </h1>
+
+    </div>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <p>The IP adress scanned : {{ip}} is {{valid}} </p>
+          <p>The range of ports scanned : {{rng}}</p>
+        </div>
+      </div>
+
+
+      {% macro get_all_values(nested_dictionary) -%}
+        {%for key, value in nested_dictionary.items()%}
+          {%if type(value) is dict%}
+            get_all_values(value)
+          {%else%}
+            <p>{{key}} : {{value}}</p>
+          {% endif %}
+        {% endfor %}
+      {%- endmacro %}
+
+      <h2>Ports state</h2>
+      {%for (key, value) in output.items():%}
+      <div class="card">
+        <div class="card-body">
+          <h2>the IP adress: {{key}}</h2>
+          <p>{{value}}</p>
+        </div>
+      </div>
+      {% endfor %}
+      
+      <h2>Detectebale OS</h2>
+      {%for (key, value) in os.items():%}
+      <div class="card">
+        <div class="card-body">
+          <h2>the IP adress: {{key}}</h2>
+          <p>{{value}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+</body>
+
+</html>

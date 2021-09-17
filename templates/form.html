@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+
+    <title>Nmap Scan</title>
+
+</head>
+
+<body>
+
+    <form action="/result" method="post"> 
+
+        <div class="jumbotron jumbotron-fluid outline-warning">
+
+            <div class="container">
+
+              <h1 class="display-4">Scan your host</h1>
+
+              <p class="lead">host discovery and service and operating system detection</p>
+
+            </div>
+
+          </div>
+
+          <br> <br>
+
+        <div class="container">
+
+            <div class="container">
+
+            <div class="container">
+
+            <div class="form-group">
+
+          <label for="exampleInputEmail1">Please enter the IP adress of your network with mask</label> 
+
+          <input type="text" class="form-control" name="ip" placeholder="IP adress">
+
+        </div>
+
+        <br><br>
+
+          <div class="form-group">
+
+            <label for="exampleInputEmail1">Please enter range of ports </label> 
+  
+            <input type="text" class="form-control" name="range" placeholder="1-25">
+  
+          </div>
+          <br><br>
+          <label for="exampleInputEmail1">Choose which protocole </label>
+          <select class="form-select" name="protocole">
+            <option selected>Default</option>
+            <option value="1">UDP</option>
+            <option value="2">TCP</option>
+          </select>
+          <br><br>
+
+        <div><button type="submit" class="btn btn-danger">Scan</button></div>
+
+            </div>
+
+        </div></div>
+
+    </form>
+
+</body>
+
+</html>
